@@ -8,7 +8,6 @@ import {useNavigate } from 'react-router-dom';
 
 function AllPizza() {
   const [pizzak, setPizzak] = useState<Array<Pizza>>([]);
-  const unusedVariable = 'Ez egy nem használt változó';
 
   const navigate = useNavigate();
 
