@@ -4,16 +4,20 @@ import apiClient, { baseURL } from "../api/apiClient";
 import { toast } from "react-toastify";
 import { Card, Carousel, Container, Row,} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as Sentry from "@sentry/react";
+
+
+
 function AllChamp() {
   const [champs, setChamps] = useState<Champ[]>([]);
 
   useEffect(() => {
     apiClient
-      .get("/champions")
+      .get("/championss")
       .then((response) => setChamps(response.data))
       .catch((error) => {
         toast.success("got it");
-        console.log("asdf");
+        Sentry.captureException(error)
       });
   },[]);
 
